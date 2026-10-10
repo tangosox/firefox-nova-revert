@@ -2,8 +2,8 @@
  * Firefox 157 / Nova
  * Flat dark theme
  *
- * Change colors in COLOR PALETTE only.
- * ========================================================== */
+/* Most theme colors can be customized in COLOR PALETTE. */
+/* ========================================================== */
 
 
 /* ==========================================================
@@ -27,6 +27,10 @@
     /* URL bar */
     --my-urlbar-bg:          #1c1b22;
 
+    /* URL bar accents */
+    --my-urlbar-link: #6caaff;
+    --my-urlbar-focus: #0061e0;
+
     /* Borders */
     --my-border:             #42414d;
 
@@ -45,7 +49,7 @@
     --my-button-active-solid: #054096;
 
     /* Menus / popup surfaces */
-    --my-panel-bg: #211f26;
+    --my-panel-bg: #35333e;
 
 
     /* ======================================================
@@ -58,7 +62,6 @@
     --background-color-canvas-subtle: var(--my-panel-bg) !important;
     --background-color-canvas-inverted: var(--my-panel-bg) !important;
     --background-color-information: var(--my-panel-bg) !important;
-    --arrowpanel-background: var(--my-panel-bg) !important;
 
     /* Window / tab-strip background */
     --lwt-accent-color: var(--my-window-bg) !important;
@@ -76,6 +79,12 @@
     /* URL field while focused */
     --toolbar-field-focus-background-color: var(--my-urlbar-bg) !important;
     --toolbar-field-focus-color: var(--my-text) !important;
+
+    /* URL bar link and focus colors */
+    --link-color: var(--my-urlbar-link) !important;
+    --link-color-visited: var(--my-urlbar-link) !important;
+    --focus-outline-color: var(--my-urlbar-focus) !important;
+    --toolbar-field-focus-border-color: var(--my-urlbar-focus) !important;
 
     /* Menus / panels */
     --arrowpanel-background: var(--my-panel-bg) !important;
@@ -125,14 +134,28 @@
     --menuitem-border-radius: 4px !important;
     --panel-menuitem-border-radius: 4px !important;
 
-    --panel-padding: 4px 0 !important;
-    --panel-padding-block: 2px !important;
-
     --panel-subview-body-padding: 4px 0 !important;
     --panel-subview-body-padding-block: 4px !important;
 
+}
+
+
+/* Custom panel geometry.
+ * Excludes Dark Reader to avoid an unwanted outer popup frame.
+ * Other extensions may require similar exceptions.
+ */
+panel:not(#customizationui-widget-panel[viewId="PanelUI-webext-addon_darkreader_org-BAV"]),
+menupopup {
     --panel-border-radius: 8px !important;
     --popup-border-radius: 8px !important;
+    --panel-padding: 4px 0 !important;
+    --panel-padding-block: 2px !important;
+}
+
+/* Reduce rounding on Nova's URL suggestions dropdown */
+.urlbarView-background {
+    border-radius: 8px !important;
+    box-shadow: inset 0 0 0 1px var(--my-border) !important;
 }
 
 
@@ -272,6 +295,24 @@ border-color: var(--my-border) !important;
 
 
 /* ==========================================================
+ * URL bar — blue suggestion links and bookmark indicators
+ * ========================================================== */
+
+#urlbar-results .urlbarView-favicon {
+accent-color: var(--my-button-selected) !important;
+}
+
+#urlbar-results .urlbarView-type-icon {
+fill: var(--my-urlbar-link) !important;
+color: var(--my-urlbar-link) !important;
+}
+
+#urlbar-results .urlbarView-url {
+color: var(--my-urlbar-link) !important;
+}
+
+
+/* ==========================================================
  * Tabs
  * ========================================================== */
 
@@ -284,10 +325,13 @@ border-color: var(--my-border) !important;
     background-color: transparent !important;
 }
 
-/* Selected tab */
-.tabbrowser-tab[selected] .tab-background {
-    background-color: var(--my-tab-selected) !important;
+/* Selected vertical tab — subtle fill and outline */
+#vertical-tabs .tabbrowser-tab[selected] .tab-background {
+    background: #484752 !important;
     background-image: none !important;
+    opacity: 1 !important;
+    outline: 1px solid #777583 !important;
+    outline-offset: -1px !important;
 }
 
 /* Hovered tab */
@@ -367,8 +411,13 @@ background-image: none !important;
  * Vertical-tab close button
  * ========================================================== */
 
+/* Tab close button — smaller, neutral gray outline */
 .tabbrowser-tab .tab-close-button {
     transform: scale(0.85) !important;
+    border-color: #777583 !important;
+    outline-color: #777583 !important;
+    color: var(--my-text) !important;
+    fill: var(--my-text) !important;
 }
 
 
