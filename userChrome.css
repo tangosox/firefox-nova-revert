@@ -21,7 +21,7 @@
     --my-inactive-sidebar:   #27262e;
 
     /* Tabs */
-    --my-tab-selected:       #52515e;
+    --my-tab-selected:       #484752;
     --my-tab-hover:          rgba(255, 255, 255, 0.08);
 
     /* URL bar */
@@ -325,9 +325,9 @@ color: var(--my-urlbar-link) !important;
     background-color: transparent !important;
 }
 
-/* Selected vertical tab — subtle fill and outline */
-#vertical-tabs .tabbrowser-tab[selected] .tab-background {
-    background: #484752 !important;
+/* Selected tab — subtle fill and outline - horizontal and vertical */
+.tabbrowser-tab[selected] .tab-background {
+    background: var(--my-tab-selected) !important;
     background-image: none !important;
     opacity: 1 !important;
     outline: 1px solid #777583 !important;
