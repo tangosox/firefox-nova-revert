@@ -49,11 +49,13 @@ Built and tested using Firefox's Browser Toolbox, with ChatGPT assisting in gene
 
 ### Extension Popup Compatibility
 
-- Applies custom panel geometry to Firefox menus and panels while excluding Dark Reader's popup
-- Prevents the custom panel rounding and padding from introducing an unwanted outer frame around Dark Reader
-- Includes `userContent.css` for an extension-specific popup border adjustment
+Firefox extension popups can be styled at two different levels: the outer popup container managed by Firefox and the HTML content rendered by the extension itself.
 
-The Dark Reader exception is handled automatically by `userChrome.css`. The extension-specific `userContent.css` rule is intended for the particular translation extension used during development and may not apply to other installations.
+- **`userChrome.css`** controls Firefox's outer popup containers. The theme applies custom panel rounding and padding to most Firefox menus and panels, but excludes Dark Reader to prevent an unwanted outer frame.
+- **`userContent.css`** controls the HTML inside extension popups. An included example removes an unwanted border from a translation extension's popup.
+- Both rules can serve as examples for customizing other extensions. The appropriate approach depends on whether the element you want to change belongs to Firefox's interface or the extension's HTML.
+
+The Dark Reader exception works automatically through `userChrome.css`. The optional `userContent.css` example targets a specific `moz-extension://` UUID, which may differ between Firefox installations. To adapt it for another extension, identify its URL using Firefox's Browser Toolbox and update the rule accordingly.
 
 ## Customizing Colors
 
