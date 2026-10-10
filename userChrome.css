@@ -376,6 +376,9 @@ background-image: none !important;
     }
 }
 
+#browser {
+background-color: transparent !important;
+}
 
 /* ==========================================================
  * Bookmarks toolbar
