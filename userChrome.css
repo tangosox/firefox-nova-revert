@@ -144,12 +144,22 @@
  * Excludes Dark Reader to avoid an unwanted outer popup frame.
  * Other extensions may require similar exceptions.
  */
-panel:not(#customizationui-widget-panel[viewId="PanelUI-webext-addon_darkreader_org-BAV"]),
+panel:not(#customizationui-widget-panel[viewId="PanelUI-webext-addon_darkreader_org-BAV"]):not(#autoscroller),
 menupopup {
     --panel-border-radius: 8px !important;
     --popup-border-radius: 8px !important;
     --panel-padding: 4px 0 !important;
     --panel-padding-block: 2px !important;
+}
+
+/* Keep Firefox's autoscroll indicator circular */
+#autoscroller {
+--panel-border-radius: 50% !important;
+--popup-border-radius: 50% !important;
+}
+
+#autoscroller::part(content) {
+border-radius: 50% !important;
 }
 
 /* Reduce rounding on Nova's URL suggestions dropdown */
