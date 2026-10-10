@@ -1,0 +1,5 @@
+@-moz-document url-prefix("moz-extension://5443a19a-f02a-48c0-9cf4-a7397383c611/") {
+    body {
+        border: none !important;
+    }
+}

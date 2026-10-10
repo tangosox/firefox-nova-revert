@@ -1,0 +1,386 @@
+/* ==========================================================
+ * Firefox 157 / Nova
+ * Flat dark theme
+ *
+ * Change colors in COLOR PALETTE only.
+ * ========================================================== */
+
+
+/* ==========================================================
+ * COLOR PALETTE
+ * ========================================================== */
+
+:root {
+    /* Main surfaces */
+    --my-window-bg:          #1c1b22;
+    --my-toolbar-bg:         #2b2a33;
+    --my-sidebar-bg:         #2b2a33;
+
+    /* Inactive window */
+    --my-inactive-toolbox:   #27262e;
+    --my-inactive-sidebar:   #27262e;
+
+    /* Tabs */
+    --my-tab-selected:       #52515e;
+    --my-tab-hover:          rgba(255, 255, 255, 0.08);
+
+    /* URL bar */
+    --my-urlbar-bg:          #1c1b22;
+
+    /* Borders */
+    --my-border:             #42414d;
+
+    /* Text */
+    --my-text:               #fbfbfe;
+
+    /* Toolbar button highlights */
+    --my-button-hover:  rgba(0, 97, 224, 0.25);
+    --my-button-active: rgba(0, 97, 224, 0.40);
+    --my-button-selected: #0061e0;
+
+    /* Controls */
+    --my-control-bg:          #171519;
+    --my-info-bg:             #0c376d;
+    --my-button-hover-solid:  #0250bb;
+    --my-button-active-solid: #054096;
+
+    /* Menus / popup surfaces */
+    --my-panel-bg: #211f26;
+
+
+    /* ======================================================
+     * Firefox / Nova variables
+     * ====================================================== */
+
+    /* Menu / popup backgrounds */
+    --background-color-box: var(--my-panel-bg) !important;
+    --background-color-canvas: var(--my-panel-bg) !important;
+    --background-color-canvas-subtle: var(--my-panel-bg) !important;
+    --background-color-canvas-inverted: var(--my-panel-bg) !important;
+    --background-color-information: var(--my-panel-bg) !important;
+    --arrowpanel-background: var(--my-panel-bg) !important;
+
+    /* Window / tab-strip background */
+    --lwt-accent-color: var(--my-window-bg) !important;
+    --lwt-text-color: var(--my-text) !important;
+
+    /* Main navigation toolbar */
+    --toolbar-bgcolor: var(--my-toolbar-bg) !important;
+    --toolbar-color: var(--my-text) !important;
+
+    /* URL/search field */
+    --toolbar-field-background-color: var(--my-urlbar-bg) !important;
+    --toolbar-field-color: var(--my-text) !important;
+    --toolbar-field-border-color: var(--my-border) !important;
+
+    /* URL field while focused */
+    --toolbar-field-focus-background-color: var(--my-urlbar-bg) !important;
+    --toolbar-field-focus-color: var(--my-text) !important;
+
+    /* Menus / panels */
+    --arrowpanel-background: var(--my-panel-bg) !important;
+    --arrowpanel-color: var(--my-text) !important;
+    --arrowpanel-border-color: var(--my-border) !important;
+
+    /* Nova toolbox/sidebar */
+    --toolbox-background-color: var(--my-toolbar-bg) !important;
+    --toolbox-background-color-inactive: var(--my-inactive-toolbox) !important;
+    --toolbox-background-color-gradient-leading: var(--my-toolbar-bg) !important;
+    --toolbox-background-color-gradient-trailing: var(--my-toolbar-bg) !important;
+    --toolbox-background-gradient: none !important;
+    --toolbox-background-image: none !important;
+
+    /* Restore blue toolbar/button highlights */
+    --button-background-color-toolbar-hover: var(--my-button-hover) !important;
+    --button-background-color-toolbar-active: var(--my-button-active) !important;
+    --button-background-color-toolbar-selected: var(--my-button-selected) !important;
+
+    --toolbarbutton-background-color-hover: var(--my-button-hover) !important;
+    --toolbarbutton-background-color-active: var(--my-button-active) !important;
+    --toolbarbutton-background-color-selected: var(--my-button-selected) !important;
+
+    /* Generic buttons */
+    --button-background-color-hover: var(--my-button-hover) !important;
+    --button-background-color-active: var(--my-button-active) !important;
+    --button-background-color-selected: var(--my-button-selected) !important;
+
+    /* Ghost buttons */
+    --button-background-color-ghost-hover: var(--my-button-hover) !important;
+    --button-background-color-ghost-active: var(--my-button-active) !important;
+    --button-background-color-ghost-selected: var(--my-button-selected) !important;
+
+    /* Menu buttons */
+    --button-background-color-menu-hover: var(--my-button-hover) !important;
+    --button-background-color-menu-active: var(--my-button-active) !important;
+    --button-background-color-menu-selected: var(--my-button-selected) !important;
+
+    /* Compact menus / panels */
+    --menuitem-padding-block: 4px !important;
+    --panel-menuitem-padding-block: 4px !important;
+
+    --menuitem-margin: 0 4px !important;
+    --panel-menuitem-margin: 0 4px !important;
+    --panel-menuitem-margin-inline: 4px !important;
+
+    --menuitem-border-radius: 4px !important;
+    --panel-menuitem-border-radius: 4px !important;
+
+    --panel-padding: 4px 0 !important;
+    --panel-padding-block: 2px !important;
+
+    --panel-subview-body-padding: 4px 0 !important;
+    --panel-subview-body-padding-block: 4px !important;
+
+    --panel-border-radius: 8px !important;
+    --popup-border-radius: 8px !important;
+}
+
+
+/* ==========================================================
+ * Bookmark editor
+ * ========================================================== */
+
+/* Compact horizontal spacing */
+#editBookmarkPanel .panel-subview-body,
+#editBookmarkPanel .panel-footer {
+padding-inline: 8px !important;
+}
+
+#editBookmarkPanelContent,
+#editBookmarkPanelBottomContent {
+margin-inline: 0 !important;
+padding-inline: 0 !important;
+}
+
+/* Blue bookmark-editor accent */
+#editBookmarkPanel {
+--accent-color: var(--my-button-selected) !important;
+--focus-outline-color: var(--my-button-selected) !important;
+--border-color-selected: var(--my-button-selected) !important;
+--button-background-color-primary: var(--my-button-selected) !important;
+--button-background-color-primary-hover: var(--my-button-hover-solid) !important;
+--button-background-color-primary-active: var(--my-button-active-solid) !important;
+--background-color-information: var(--my-info-bg) !important;
+}
+
+/* Expanded folder/tag areas */
+#editBMPanel_tagsSelector,
+#editBMPanel_folderTree {
+appearance: none !important;
+background: var(--my-control-bg) !important;
+background-image: none !important;
+color: var(--my-text) !important;
+border-color: var(--my-border) !important;
+}
+
+#editBMPanel_tagsSelector:focus,
+#editBMPanel_folderTree:focus {
+border-color: var(--my-button-selected) !important;
+}
+
+/* Secondary buttons */
+#editBookmarkPanelRemoveButton,
+#editBMPanel_newFolderButton,
+#editBMPanel_foldersExpander,
+#editBMPanel_tagsSelectorExpander {
+border-color: var(--my-button-selected) !important;
+}
+
+/* Folder/Tags expander arrows */
+#editBMPanel_foldersExpander,
+#editBMPanel_tagsSelectorExpander {
+color: var(--my-button-selected) !important;
+fill: var(--my-button-selected) !important;
+}
+
+/* Show editor when saving checkbox */
+#editBookmarkPanel_showForNewBookmarks {
+accent-color: var(--my-button-selected) !important;
+--checkbox-checked-bgcolor: var(--my-button-selected) !important;
+--checkbox-checked-hover-bgcolor: var(--my-button-hover-solid) !important;
+--checkbox-checked-active-bgcolor: var(--my-button-active-solid) !important;
+}
+
+#editBookmarkPanel_showForNewBookmarks > .checkbox-check[checked] {
+background: var(--my-button-selected) !important;
+border-color: var(--my-button-selected) !important;
+fill: var(--my-text) !important;
+}
+
+
+/* ==========================================================
+ * Bookmarks — starred indicator
+ * ========================================================== */
+
+#star-button[starred] {
+fill: var(--my-button-selected) !important;
+color: var(--my-button-selected) !important;
+accent-color: var(--my-button-selected) !important;
+}
+
+#star-button-box:hover #star-button[starred],
+#star-button-box[open="true"] #star-button[starred] {
+fill: var(--my-text) !important;
+color: var(--my-text) !important;
+}
+
+
+/* ==========================================================
+ * Downloads — completed download attention state
+ * ========================================================== */
+
+#downloads-button[attention="success"] #downloads-indicator-icon,
+#downloads-button[attention="success"] #downloads-indicator-start-image,
+#downloads-button[attention="success"] #downloads-indicator-finish-image {
+fill: var(--my-button-selected) !important;
+}
+
+
+/* ==========================================================
+ * Remove Nova gradients
+ * ========================================================== */
+
+#navigator-toolbox,
+#nav-bar,
+#TabsToolbar,
+#browser,
+#sidebar-main,
+#sidebar-box,
+#sidebar {
+background-image: none !important;
+}
+
+
+/* ==========================================================
+ * Navigation toolbar
+ * ========================================================== */
+
+#nav-bar {
+background-color: var(--my-toolbar-bg) !important;
+}
+
+
+/* ==========================================================
+ * URL bar
+ * ========================================================== */
+
+#urlbar-background {
+background: var(--my-urlbar-bg) !important;
+background-image: none !important;
+border-color: var(--my-border) !important;
+}
+
+
+/* ==========================================================
+ * Tabs
+ * ========================================================== */
+
+.tabbrowser-tab .tab-background {
+    background-image: none !important;
+}
+
+/* Normal tabs */
+.tabbrowser-tab:not([selected]) .tab-background {
+    background-color: transparent !important;
+}
+
+/* Selected tab */
+.tabbrowser-tab[selected] .tab-background {
+    background-color: var(--my-tab-selected) !important;
+    background-image: none !important;
+}
+
+/* Hovered tab */
+.tabbrowser-tab:not([selected]):hover .tab-background {
+    background-color: var(--my-tab-hover) !important;
+    background-image: none !important;
+}
+
+
+/* ==========================================================
+ * Vertical tabs / sidebar
+ * ========================================================== */
+
+#sidebar-main,
+#sidebar-box,
+#sidebar,
+#vertical-tabs,
+#tabbrowser-tabs {
+background: var(--my-sidebar-bg) !important;
+background-color: var(--my-sidebar-bg) !important;
+background-image: none !important;
+}
+
+
+/* Firefox 157 Nova — flatten revamped vertical sidebar */
+
+@media -moz-pref("sidebar.revamp") {
+    #sidebar-main {
+    --lwt-accent-color: var(--my-sidebar-bg) !important;
+    --toolbar-bgcolor: var(--my-sidebar-bg) !important;
+    --sidebar-background-color: var(--my-sidebar-bg) !important;
+
+    background: var(--my-sidebar-bg) !important;
+    background-image: none !important;
+    }
+
+    #sidebar {
+    background: var(--my-sidebar-bg) !important;
+    background-color: var(--my-sidebar-bg) !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    }
+}
+
+
+/* ==========================================================
+ * Bookmarks toolbar
+ * ========================================================== */
+
+#PersonalToolbar {
+background: var(--my-toolbar-bg) !important;
+background-color: var(--my-toolbar-bg) !important;
+}
+
+#PersonalToolbar,
+#PersonalToolbar toolbarbutton,
+.browser-toolbar {
+    background-image: none !important;
+}
+
+
+/* ==========================================================
+ * Kill gradients added through pseudo-elements
+ * ========================================================== */
+
+#navigator-toolbox::before,
+#navigator-toolbox::after,
+#sidebar-main::before,
+#sidebar-main::after,
+#PersonalToolbar::before,
+#PersonalToolbar::after {
+background-image: none !important;
+}
+
+
+/* ==========================================================
+ * Vertical-tab close button
+ * ========================================================== */
+
+.tabbrowser-tab .tab-close-button {
+    transform: scale(0.85) !important;
+}
+
+
+/* ==========================================================
+ * Inactive window
+ * ========================================================== */
+
+:root:-moz-window-inactive #sidebar-main,
+:root:-moz-window-inactive #sidebar-box,
+:root:-moz-window-inactive #sidebar,
+:root:-moz-window-inactive #vertical-tabs,
+:root:-moz-window-inactive #tabbrowser-tabs {
+    background-color: var(--my-inactive-sidebar) !important;
+    background-image: none !important;
+}
