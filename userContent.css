@@ -3,3 +3,77 @@
         border: none !important;
     }
 }
+
+/* ============================================================
+   FIREFOX INTERNAL PAGES — NOVA DARK THEME
+   Applies to about:preferences, about:support, about:addons,
+   about:config, and other Firefox internal pages.
+   ============================================================ */
+
+@-moz-document regexp("^about:.*") {
+
+    :root {
+        /* Blue accent colors */
+        --in-content-accent-color: #0061e0 !important;
+        --in-content-accent-color-active: #0250bb !important;
+        --in-content-primary-button-background: #0061e0 !important;
+        --in-content-primary-button-background-hover: #0250bb !important;
+        --in-content-primary-button-background-active: #054096 !important;
+        --in-content-focus-outline-color: #0061e0 !important;
+
+        /* Neutral buttons */
+        --in-content-button-background: #35333e !important;
+        --in-content-button-background-hover: #42414d !important;
+        --in-content-button-background-active: #52515e !important;
+        --in-content-button-border-color: #42414d !important;
+        --in-content-button-border-color-hover: #777583 !important;
+
+        /* Borders */
+        --in-content-border-color: #42414d !important;
+
+        /* Links */
+        --in-content-link-color: #6caaff !important;
+        --in-content-link-color-hover: #8cbdff !important;
+    }
+
+    /* Neutral table headers */
+    th {
+        background-color: #35333e !important;
+        color: #fbfbfe !important;
+    }
+
+    /* Links */
+    a {
+        color: #6caaff !important;
+    }
+
+    /* Standard button borders */
+    button {
+        border-color: #777583 !important;
+    }
+
+    /* Primary action buttons */
+    button.primary,
+    button[type="primary"],
+    button.primary-button {
+        background-color: #0061e0 !important;
+        border-color: #0061e0 !important;
+        color: #fff !important;
+    }
+
+    button.primary:hover,
+    button[type="primary"]:hover,
+    button.primary-button:hover {
+        background-color: #0250bb !important;
+        border-color: #0250bb !important;
+    }
+
+    /* Replace lavender button hover backgrounds */
+    button:hover {
+        background-color: #42414d !important;
+    }
+
+    button:active {
+        background-color: #52515e !important;
+    }
+}
