@@ -151,4 +151,4 @@ The CSS uses Firefox-specific selectors and internal UI variables, so future upd
 
 Extension popups can use different Firefox containers and their own internal styles. The Dark Reader exception is included to avoid a popup layout issue encountered during development.
 
-Will continue to iterate as I find elents I missed. Don't be afraid to point things out. Would like to add a light theme in the future.
+Will continue to iterate as I find elements I missed. Don't be afraid to point things out. Would like to add a light theme in the future.
