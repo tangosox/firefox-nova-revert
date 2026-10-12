@@ -150,3 +150,5 @@ This theme does not disable Nova or restore the old Firefox interface. It restyl
 The CSS uses Firefox-specific selectors and internal UI variables, so future updates may require adjustments.
 
 Extension popups can use different Firefox containers and their own internal styles. The Dark Reader exception is included to avoid a popup layout issue encountered during development.
+
+Will continue to iterate as I find elents I missed. Don't be afraid to point things out. Would like to add a light theme in the future.
