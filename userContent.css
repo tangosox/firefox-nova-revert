@@ -68,6 +68,17 @@
     button {
         border-color: #777583 !important;
     }
+    
+    /* about:support — neutral button hover and active states */
+    @-moz-document url("about:support") {
+        button:hover {
+            background-color: #42414d !important;
+        }
+
+        button:active {
+            background-color: #52515e !important;
+        }
+    }
 
     /* Primary action buttons */
     button.primary,
