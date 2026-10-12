@@ -1,24 +1,36 @@
 
+/* ============================================================
+   FIREFOX NOVA — USER CONTENT THEME
+   ============================================================ */
+
+/* Extension popup */
 @-moz-document url-prefix("moz-extension://5443a19a-f02a-48c0-9cf4-a7397383c611/") {
     body {
         border: none !important;
     }
 }
 
-/* ============================================================
- *   FIREFOX INTERNAL PAGES — NOVA DARK THEME
- *   ============================================================ */
-
+/* Firefox internal pages */
 @-moz-document regexp("^(about:|chrome://).*") {
 
     :root {
-        /* Blue accent colors */
+        /* Accent colors */
         --in-content-accent-color: #0061e0 !important;
         --in-content-accent-color-active: #0250bb !important;
+        --in-content-focus-outline-color: #0061e0 !important;
+
+        --color-accent-primary: #0061e0 !important;
+        --color-accent-primary-hover: #0250bb !important;
+        --color-accent-primary-active: #054096 !important;
+
+        /* Primary buttons */
         --in-content-primary-button-background: #0061e0 !important;
         --in-content-primary-button-background-hover: #0250bb !important;
         --in-content-primary-button-background-active: #054096 !important;
-        --in-content-focus-outline-color: #0061e0 !important;
+
+        --button-background-color-primary: #0061e0 !important;
+        --button-background-color-primary-hover: #0250bb !important;
+        --button-background-color-primary-active: #054096 !important;
 
         /* Neutral buttons */
         --in-content-button-background: #35333e !important;
@@ -27,33 +39,21 @@
         --in-content-button-border-color: #42414d !important;
         --in-content-button-border-color-hover: #777583 !important;
 
-        /* Borders */
-        --in-content-border-color: #42414d !important;
-
-        /* Links */
-        --in-content-link-color: #6caaff !important;
-        --in-content-link-color-hover: #8cbdff !important;
-
-        /* Firefox 157 Nova accent colors */
-        --color-accent-primary: #0061e0 !important;
-        --color-accent-primary-hover: #0250bb !important;
-        --color-accent-primary-active: #054096 !important;
-
-        /* Primary buttons */
-        --button-background-color-primary: #0061e0 !important;
-        --button-background-color-primary-hover: #0250bb !important;
-        --button-background-color-primary-active: #054096 !important;
-
         --button-border-color: #42414d !important;
         --button-border-color-hover: #777583 !important;
 
-        /* New Tab accents */
+        /* Borders and links */
+        --in-content-border-color: #42414d !important;
+        --in-content-link-color: #6caaff !important;
+        --in-content-link-color-hover: #8cbdff !important;
+
+        /* New Tab */
         --newtab-primary-action-background: #0061e0 !important;
         --newtab-primary-action-background-pocket: #0061e0 !important;
         --newtab-button-focus-border: #0061e0 !important;
     }
 
-    /* Neutral table headers */
+    /* Tables */
     th {
         background-color: #35333e !important;
         color: #fbfbfe !important;
@@ -64,20 +64,9 @@
         color: #6caaff !important;
     }
 
-    /* Standard button borders */
+    /* Standard buttons */
     button {
         border-color: #777583 !important;
-    }
-    
-    /* about:support — neutral button hover and active states */
-    @-moz-document url("about:support") {
-        button:hover {
-            background-color: #42414d !important;
-        }
-
-        button:active {
-            background-color: #52515e !important;
-        }
     }
 
     /* Primary action buttons */
@@ -96,7 +85,7 @@
         border-color: #0250bb !important;
     }
 
-    /* New Tab Customize button — gray with white text */
+    /* New Tab Customize */
     moz-button.open-customization-button {
         --button-background-color-primary: #35333e !important;
         --button-background-color-primary-hover: #42414d !important;
@@ -107,8 +96,19 @@
         --button-text-color-primary-active: #fbfbfe !important;
     }
 
-    /* Rounded moz-button surfaces */
     moz-button::part(button) {
         border-radius: 24px !important;
     }
 }
+
+/* about:support — gray hover */
+@-moz-document url("about:support") {
+    button:hover {
+        background-color: #42414d !important;
+    }
+
+    button:active {
+        background-color: #52515e !important;
+    }
+}
+
