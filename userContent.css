@@ -1,3 +1,4 @@
+
 @-moz-document url-prefix("moz-extension://5443a19a-f02a-48c0-9cf4-a7397383c611/") {
     body {
         border: none !important;
@@ -5,10 +6,8 @@
 }
 
 /* ============================================================
-   FIREFOX INTERNAL PAGES — NOVA DARK THEME
-   Applies to about:preferences, about:support, about:addons,
-   about:config, and other Firefox internal pages.
-   ============================================================ */
+ *   FIREFOX INTERNAL PAGES — NOVA DARK THEME
+ *   ============================================================ */
 
 @-moz-document regexp("^(about:|chrome://).*") {
 
@@ -34,12 +33,13 @@
         /* Links */
         --in-content-link-color: #6caaff !important;
         --in-content-link-color-hover: #8cbdff !important;
-        
-        /* Firefox 157 Nova shared accent and button colors */
+
+        /* Firefox 157 Nova accent colors */
         --color-accent-primary: #0061e0 !important;
         --color-accent-primary-hover: #0250bb !important;
         --color-accent-primary-active: #054096 !important;
 
+        /* Primary buttons */
         --button-background-color-primary: #0061e0 !important;
         --button-background-color-primary-hover: #0250bb !important;
         --button-background-color-primary-active: #054096 !important;
@@ -47,6 +47,7 @@
         --button-border-color: #42414d !important;
         --button-border-color-hover: #777583 !important;
 
+        /* New Tab accents */
         --newtab-primary-action-background: #0061e0 !important;
         --newtab-primary-action-background-pocket: #0061e0 !important;
         --newtab-button-focus-border: #0061e0 !important;
@@ -84,24 +85,19 @@
         border-color: #0250bb !important;
     }
 
-    moz-button::part(button) {
-        border-radius: 24px !important;
-    }
-    
-    /* New Tab Customize button */
+    /* New Tab Customize button — gray with white text */
     moz-button.open-customization-button {
         --button-background-color-primary: #35333e !important;
         --button-background-color-primary-hover: #42414d !important;
         --button-background-color-primary-active: #52515e !important;
-    }
-    
-    moz-button.open-customization-button {
-    --button-background-color-primary: #35333e !important;
-    --button-background-color-primary-hover: #42414d !important;
-    --button-background-color-primary-active: #52515e !important;
 
-    --button-text-color-primary: #fbfbfe !important;
-    --button-text-color-primary-hover: #fbfbfe !important;
-    --button-text-color-primary-active: #fbfbfe !important;
+        --button-text-color-primary: #fbfbfe !important;
+        --button-text-color-primary-hover: #fbfbfe !important;
+        --button-text-color-primary-active: #fbfbfe !important;
+    }
+
+    /* Rounded moz-button surfaces */
+    moz-button::part(button) {
+        border-radius: 24px !important;
     }
 }
