@@ -55,6 +55,27 @@
     /* ======================================================
      * Firefox / Nova variables
      * ====================================================== */
+    
+    /* Firefox authentication and password dialogs */
+    --button-background-color-primary: #0061e0 !important;
+    --button-background-color-primary-hover: #0250bb !important;
+    --button-background-color-primary-active: #054096 !important;
+
+    --button-text-color-primary: #ffffff !important;
+    --button-text-color-primary-hover: #ffffff !important;
+    --button-text-color-primary-active: #ffffff !important;
+    
+    /* Secondary buttons — Cancel, Not now, etc. */
+    --button-background-color: #35333e !important;
+    --button-background-color-hover: #42414d !important;
+    --button-background-color-active: #52515e !important;
+
+    --button-text-color: #fbfbfe !important;
+    
+    /* Neutral secondary button borders */
+    --button-border-color: #777583 !important;
+    --button-border-color-hover: #777583 !important;
+    --button-border-color-active: #777583 !important;
 
     /* Menu / popup backgrounds */
     --background-color-box: var(--my-panel-bg) !important;
@@ -445,4 +466,21 @@ background-image: none !important;
 :root:-moz-window-inactive #tabbrowser-tabs {
     background-color: var(--my-inactive-sidebar) !important;
     background-image: none !important;
+}
+
+/* Authentication dialog — neutral Cancel button */
+button[part="dialog-button"][dlgtype="cancel"] {
+    border-color: #777583 !important;
+    color: #fbfbfe !important;
+}
+
+/* Save Password popup — restore comfortable spacing */
+#notification-popup #password-notification
+.popup-notification-body-container {
+    padding: 12px 16px !important;
+}
+
+#notification-popup #password-notification
+.panel-footer {
+    padding: 8px 16px 12px !important;
 }
