@@ -510,3 +510,14 @@ button[part="dialog-button"][dlgtype="accept"]:active {
 #checkboxContainer checkbox {
 accent-color: #0061e0 !important;
 }
+
+/* Site permission prompts — restore horizontal padding */
+#notification-popup popupnotification:not(#password-notification)
+.popup-notification-body-container {
+    padding: 12px 16px !important;
+}
+
+#notification-popup popupnotification:not(#password-notification)
+.panel-footer {
+    padding: 8px 0px 0px !important;
+}
