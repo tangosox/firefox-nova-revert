@@ -112,19 +112,14 @@
     }
 }
 
-
+/* about:preferences — blue hover, active, and link colors */
 @-moz-document url-prefix("about:preferences") {
     :root {
         --button-background-color-hover: #29436b !important;
-    }
-}
-
-@-moz-document url-prefix("about:preferences") {
-    :root {
-        --button-background-color-hover: #29436b !important;
+        --button-background-color-active: #203858 !important;
     }
 
-    /* Links inside hovered Settings buttons/rows */
+    /* Links inside hovered or focused elements */
     a:hover,
     a:focus-visible {
         color: #f0f4ff !important;
