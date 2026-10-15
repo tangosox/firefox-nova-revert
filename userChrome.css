@@ -484,3 +484,31 @@ button[part="dialog-button"][dlgtype="cancel"] {
 .panel-footer {
     padding: 8px 16px 12px !important;
 }
+
+/* Primary dialog buttons — Quit Firefox, Sign in */
+button[part="dialog-button"][dlgtype="accept"] {
+    background-color: #0061e0 !important;
+    border-color: #0061e0 !important;
+    color: #ffffff !important;
+}
+
+button[part="dialog-button"][dlgtype="accept"]:hover {
+    background-color: #0250bb !important;
+    border-color: #0250bb !important;
+}
+
+button[part="dialog-button"][dlgtype="accept"]:active {
+    background-color: #054096 !important;
+    border-color: #054096 !important;
+}
+
+/* Quit Firefox dialog — blue checkbox */
+#checkboxContainer {
+--color-accent-primary: #0061e0 !important;
+--color-accent-primary-hover: #0250bb !important;
+--color-accent-primary-active: #054096 !important;
+}
+
+#checkboxContainer checkbox {
+accent-color: #0061e0 !important;
+}
