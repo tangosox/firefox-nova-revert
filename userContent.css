@@ -112,11 +112,19 @@
     }
 }
 
-/* about:preferences — blue hover, active, and link colors */
+
+/* about:preferences — navigation and button colors */
 @-moz-document url-prefix("about:preferences") {
     :root {
+        /* Hover and pressed backgrounds */
         --button-background-color-hover: #29436b !important;
         --button-background-color-active: #203858 !important;
+
+        /* Selected navigation text */
+        moz-page-nav-button {
+            --page-nav-button-text-color-selected: #ffffff !important;
+            --button-text-color-primary: #ffffff !important;
+        }
     }
 
     /* Links inside hovered or focused elements */
