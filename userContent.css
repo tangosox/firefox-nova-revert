@@ -112,3 +112,21 @@
     }
 }
 
+
+@-moz-document url-prefix("about:preferences") {
+    :root {
+        --button-background-color-hover: #29436b !important;
+    }
+}
+
+@-moz-document url-prefix("about:preferences") {
+    :root {
+        --button-background-color-hover: #29436b !important;
+    }
+
+    /* Links inside hovered Settings buttons/rows */
+    a:hover,
+    a:focus-visible {
+        color: #f0f4ff !important;
+    }
+}
