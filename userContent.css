@@ -117,8 +117,8 @@
 @-moz-document url-prefix("about:preferences") {
     :root {
         /* Hover and pressed backgrounds */
-        --button-background-color-hover: #29436b !important;
-        --button-background-color-active: #203858 !important;
+        --button-background-color-hover: rgba(0, 97, 224, 0.25) !important;
+        --button-background-color-active: rgba(0, 97, 224, 0.40) !important;
 
         /* Selected navigation text */
         moz-page-nav-button {

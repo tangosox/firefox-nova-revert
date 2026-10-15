@@ -67,8 +67,6 @@
     
     /* Secondary buttons — Cancel, Not now, etc. */
     --button-background-color: #35333e !important;
-    --button-background-color-hover: #42414d !important;
-    --button-background-color-active: #52515e !important;
 
     --button-text-color: #fbfbfe !important;
     
