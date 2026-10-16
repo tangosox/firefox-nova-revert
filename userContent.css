@@ -11,9 +11,21 @@
 }
 
 /* Firefox internal pages */
-@-moz-document regexp("^(about:|chrome://).*") {
+@-moz-document regexp("^(about:|chrome://|resource://pdf\\.js/|file:).*") {
 
     :root {
+
+        /* Shared Nova hover colors */
+        --button-background-color-hover: rgba(0, 97, 224, 0.25) !important;
+        --button-background-color-menu-hover: rgba(0, 97, 224, 0.25) !important;
+        --button-background-color-ghost-hover: rgba(0, 97, 224, 0.25) !important;
+        --button-background-color-toolbar-hover: rgba(0, 97, 224, 0.25) !important;
+
+        --button-border-color-hover: #0061e0 !important;
+        --button-secondary-hover-border-color: #0061e0 !important;
+
+        --color-accent-primary-hover: #0250bb !important;
+
         /* Accent colors */
         --in-content-accent-color: #0061e0 !important;
         --in-content-accent-color-active: #0250bb !important;
