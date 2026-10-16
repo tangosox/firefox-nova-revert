@@ -145,3 +145,31 @@
         color: #f0f4ff !important;
     }
 }
+
+@-moz-document regexp("^file:.*\\.pdf(?:[?#].*)?$") {
+    /* PDF.js secondary toolbar */
+    #secondaryToolbar {
+    border-radius: 8px !important;
+    }
+
+    /* Compact menu items */
+    #secondaryToolbar .toolbarButton {
+    border-radius: 4px !important;
+    }
+
+    /* Selected menu items */
+    #secondaryToolbar .toolbarButton.toggled {
+    background-color: rgba(0, 97, 224, 0.40) !important;
+    color: #fbfbfe !important;
+    }
+
+    /* Hover */
+    #secondaryToolbar .toolbarButton:hover:not(:disabled) {
+    background-color: rgba(0, 97, 224, 0.25) !important;
+    }
+
+    /* Selected + hovered */
+    #secondaryToolbar .toolbarButton.toggled:hover {
+    background-color: rgba(0, 97, 224, 0.50) !important;
+    }
+}
