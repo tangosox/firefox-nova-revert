@@ -17,6 +17,7 @@
 
         /* Shared Nova hover colors */
         --button-background-color-hover: rgba(0, 97, 224, 0.25) !important;
+        --button-background-color-active: rgba(0, 97, 224, 0.40) !important;
         --button-background-color-menu-hover: rgba(0, 97, 224, 0.25) !important;
         --button-background-color-ghost-hover: rgba(0, 97, 224, 0.25) !important;
         --button-background-color-toolbar-hover: rgba(0, 97, 224, 0.25) !important;
@@ -173,3 +174,4 @@
     background-color: rgba(0, 97, 224, 0.50) !important;
     }
 }
+

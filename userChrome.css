@@ -521,3 +521,14 @@ accent-color: #0061e0 !important;
 .panel-footer {
     padding: 8px 0px 0px !important;
 }
+
+/* ============================================================
+   FIREFOX TRANSLATION POPUP
+   ============================================================ */
+
+/* Translation popup spacing */
+/* Firefox translation popup */
+#full-page-translations-panel-view-default {
+    padding: 0 16px 0 !important;
+}
+
