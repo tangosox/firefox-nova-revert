@@ -10,19 +10,19 @@ Built and tested using Firefox's Browser Toolbox, with ChatGPT assisting in gene
 
 ### Vertical tabs — compact sidebar and application menu
 
-![Firefox Nova dark theme with collapsed vertical tabs and application menu](vertical-tabs.png)
+![Firefox Nova dark theme with collapsed vertical tabs and application menu](images/vertical-tabs.png)
 
 ### Expanded vertical tabs and bookmarks sidebar
 
-![Expanded vertical tabs, bookmarks sidebar, and application menu](expanded-sidebar.png)
+![Expanded vertical tabs, bookmarks sidebar, and application menu](images/expanded-sidebar.png)
 
 ### Horizontal tabs
 
-![Firefox Nova flat dark theme with horizontal tabs](horizontal-tabs.png)
+![Firefox Nova flat dark theme with horizontal tabs](images/horizontal-tabs.png)
 
 ### Focused URL bar and internal page styling
 
-![Focused URL bar and suggestions over the about:support page](urlbar-autocomplete.png)
+![Focused URL bar and suggestions over the about:support page](images/urlbar-autocomplete.png)
 
 ## Changes
 
@@ -35,6 +35,7 @@ Built and tested using Firefox's Browser Toolbox, with ChatGPT assisting in gene
 - Reduces excessive menu and panel corner rounding
 - Makes menus and panels more compact
 - Includes separate inactive-window colors
+- Refines button hover, active, selected, and focus colors
 
 ### URL Bar
 
@@ -65,10 +66,28 @@ Built and tested using Firefox's Browser Toolbox, with ChatGPT assisting in gene
 
 - Changes the completed-download indicator from purple to blue
 
+### Browser Popups and Permissions
+
+- Maintains compact Firefox menus and panels while allowing individual popups to use appropriate spacing
+- Adjusts location permission prompt padding to provide more consistent spacing around its content
+- Adds horizontal padding to Firefox's built-in page translation popup without introducing unnecessary vertical padding
+- Preserves compact bookmark menus while independently styling other browser panels
+
+The built-in translation popup is styled through `userChrome.css`, since it belongs to Firefox's browser interface rather than webpage content.
+
+### Back/Forward Swipe Navigation
+
+- Replaces the purple accent used by Firefox's touchpad swipe navigation indicators with blue
+- Uses Firefox's internal swipe indicator color variable rather than overriding individual SVG shapes
+- Preserves the existing back/forward gesture animations and navigation behavior
+
+The swipe indicators are dynamically created by Firefox during horizontal touchpad gestures. Their styling is controlled through `userChrome.css`.
+
 ### Internal Pages (`userContent.css`)
 
 - Replaces lavender accents with blue on supported Firefox internal pages
 - Uses neutral gray buttons and borders, including hover and active styling on `about:support`
+- Overrides Nova's purple/lavender button active-state colors where applicable
 - Restyles table headers and links on internal pages
 - Makes the New Tab **Customize** button gray with light text and rounded corners
 
@@ -84,7 +103,7 @@ The Dark Reader exception works automatically through `userChrome.css`. The opti
 
 ## Customizing Colors
 
-Most browser-chrome colors are centralized in the `:root` section near the top of `userChrome.css`. For example:
+Most browser-chrome colors are centralized in the `:root` section near the top of `src/userChrome.css`. For example:
 
 ```css
 :root {
@@ -106,7 +125,26 @@ Most browser-chrome colors are centralized in the `:root` section near the top o
 
 Change these variables to customize much of the browser-chrome palette. Some colors and corner radii are defined directly in individual rules.
 
-`userContent.css` has its own `:root` variables for internal pages, including the newer Nova `--color-accent-primary` and `--button-background-color-primary` variables. The New Tab Customize button has a separate gray override.
+`userContent.css` has its own `:root` variables for internal pages, including the newer Nova `--color-accent-primary`, `--button-background-color-primary`, and `--button-background-color-active` variables. The New Tab Customize button has a separate gray override.
+
+Some Firefox interface components also define their own local color variables. For example, the back/forward swipe navigation indicators use `--swipe-nav-icon-primary-color`.
+
+These can be customized independently without changing the accent color throughout the entire browser.
+
+## Repository Structure
+
+```text
+firefox_nova_revert/
+├── README.md
+├── src/
+│   ├── userChrome.css
+│   └── userContent.css
+└── images/
+    ├── vertical-tabs.png
+    ├── expanded-sidebar.png
+    ├── horizontal-tabs.png
+    └── urlbar-autocomplete.png
+```
 
 ## Installation
 
@@ -115,10 +153,10 @@ Change these variables to customize much of the browser-chrome palette. Some col
 3. Navigate to `about:support`.
 4. Find **Profile Directory** and click **Open Directory**.
 5. Create a folder named `chrome` inside your Firefox profile if one doesn't already exist.
-6. Copy `userChrome.css` and `userContent.css` into that folder.
+6. Copy `src/userChrome.css` and `src/userContent.css` from this repository into that folder.
 7. Restart Firefox.
 
-Your directory should look like:
+Your Firefox profile directory should look like:
 
 ```text
 <Firefox profile>/
@@ -127,7 +165,28 @@ Your directory should look like:
     └── userContent.css
 ```
 
-**Note:** `userChrome.css` modifies Firefox's interface, while `userContent.css` styles supported internal pages and the included extension-specific popup example. You can use `userChrome.css` on its own, but the internal-page and New Tab button changes require `userContent.css`.
+**Note:** `userChrome.css` modifies Firefox's interface, including its toolbar, menus, permission prompts, built-in translation popup, and swipe indicators.
+
+`userContent.css` styles supported internal pages and the included extension-specific popup example.
+
+You can use `userChrome.css` on its own, but the internal-page and New Tab button changes require `userContent.css`.
+
+Firefox generally requires a restart for changes to these stylesheets to take effect.
+
+### Optional: Symbolic Links (Linux)
+
+Instead of copying the files, Linux users can create symbolic links from their Firefox profile to the repository. This allows the files to remain under Git version control without maintaining duplicate copies.
+
+For example, from your Firefox profile's `chrome` directory:
+
+```bash
+ln -s /path/to/firefox_nova_revert/src/userChrome.css userChrome.css
+ln -s /path/to/firefox_nova_revert/src/userContent.css userContent.css
+```
+
+Replace `/path/to/firefox_nova_revert` with the actual repository path.
+
+Restart Firefox after modifying the source files.
 
 ## Compatibility
 
@@ -137,9 +196,10 @@ Developed and tested with:
 - Nova UI enabled
 - Dark theme
 - Vertical and horizontal tabs
+- Linux, including KDE Plasma on Wayland
 - Dark Reader extension
 
-The theme is designed around Firefox 157's interface. It has not been comprehensively tested with other Firefox versions, themes, or extension combinations.
+The theme is designed around Firefox 157's interface. It has not been comprehensively tested with other Firefox versions, operating systems, themes, or extension combinations.
 
 Some selectors, internal variables, and popup structures may change in future Firefox releases.
 
@@ -149,6 +209,15 @@ This theme does not disable Nova or restore the old Firefox interface. It restyl
 
 The CSS uses Firefox-specific selectors and internal UI variables, so future updates may require adjustments.
 
+Standard Firefox themes and WebExtensions cannot directly modify all the internal browser elements targeted by this project. These customizations require `userChrome.css` and `userContent.css`.
+
 Extension popups can use different Firefox containers and their own internal styles. The Dark Reader exception is included to avoid a popup layout issue encountered during development.
 
-Will continue to iterate as I find elements I missed. Don't be afraid to point things out. Would like to add a light theme in the future.
+### Future Plans
+
+- Continue refining UI elements that still use Nova's default purple or lavender accents
+- Add a light theme
+- Explore a monochrome black-and-white appearance mode
+- Consider a standalone configuration utility for selecting colors, appearance modes, and individual customization options
+
+This is an ongoing project. Feedback and reports of missed UI elements are welcome.
