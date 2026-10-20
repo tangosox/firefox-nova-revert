@@ -148,15 +148,37 @@ firefox_nova_revert/
 
 ## Installation
 
+### 1. Clone the repository
+
+Make sure Git is installed, then clone the repository:
+
+```bash
+git clone https://github.com/USERNAME/firefox_nova_revert.git
+cd firefox_nova_revert
+```
+
+Replace `USERNAME` with the GitHub account that hosts the repository.
+
+Alternatively, download the repository as a ZIP from GitHub and extract it.
+
+### 2. Enable Firefox custom stylesheets
+
 1. Open Firefox and navigate to `about:config`.
 2. Set `toolkit.legacyUserProfileCustomizations.stylesheets` to `true`.
 3. Navigate to `about:support`.
 4. Find **Profile Directory** and click **Open Directory**.
-5. Create a folder named `chrome` inside your Firefox profile if one doesn't already exist.
-6. Copy `src/userChrome.css` and `src/userContent.css` from this repository into that folder.
-7. Restart Firefox.
+5. Create a folder named `chrome` inside your Firefox profile if it doesn't already exist.
 
-Your Firefox profile directory should look like:
+### 3. Install the stylesheets
+
+**Option A: Copy the files**
+
+Copy both files from the repository's `src/` directory into your Firefox profile's `chrome/` directory:
+
+- `src/userChrome.css`
+- `src/userContent.css`
+
+Your profile should look like:
 
 ```text
 <Firefox profile>/
@@ -165,29 +187,50 @@ Your Firefox profile directory should look like:
     └── userContent.css
 ```
 
-**Note:** `userChrome.css` modifies Firefox's interface, including its toolbar, menus, permission prompts, built-in translation popup, and swipe indicators.
+**Option B: Use symbolic links (Linux — recommended)**
 
-`userContent.css` styles supported internal pages and the included extension-specific popup example.
+Symbolic links allow Firefox to load the stylesheets directly from the cloned repository. This avoids having to copy the files again after every update.
 
-You can use `userChrome.css` on its own, but the internal-page and New Tab button changes require `userContent.css`.
-
-Firefox generally requires a restart for changes to these stylesheets to take effect.
-
-### Optional: Symbolic Links (Linux)
-
-Instead of copying the files, Linux users can create symbolic links from their Firefox profile to the repository. This allows the files to remain under Git version control without maintaining duplicate copies.
-
-For example, from your Firefox profile's `chrome` directory:
+Navigate to your Firefox profile's `chrome/` directory and run:
 
 ```bash
-ln -s /path/to/firefox_nova_revert/src/userChrome.css userChrome.css
-ln -s /path/to/firefox_nova_revert/src/userContent.css userContent.css
+ln -s /absolute/path/to/firefox_nova_revert/src/userChrome.css userChrome.css
+ln -s /absolute/path/to/firefox_nova_revert/src/userContent.css userContent.css
 ```
 
-Replace `/path/to/firefox_nova_revert` with the actual repository path.
+Replace `/absolute/path/to/firefox_nova_revert` with the actual location of your cloned repository.
 
-Restart Firefox after modifying the source files.
+If you already have `userChrome.css` or `userContent.css` files in your profile, back them up before creating the links.
 
+### 4. Restart Firefox
+
+Restart Firefox to load the custom stylesheets.
+
+**Note:** `userChrome.css` modifies Firefox's browser interface, while `userContent.css` styles supported internal pages and the included extension-specific popup example.
+
+## Updating
+
+If you cloned the repository using Git, navigate to its directory and run:
+
+```bash
+git pull --ff-only
+```
+
+This downloads and applies the latest changes from the remote repository, provided your local branch can be fast-forwarded.
+
+**If you installed using symbolic links:** Simply restart Firefox. The updated CSS files will already be available through the links.
+
+**If you copied the files manually:** Copy the updated files from `src/` into your Firefox profile's `chrome/` directory again, replacing the previous versions, then restart Firefox.
+
+If you downloaded a ZIP rather than cloning with Git, download the latest ZIP and reinstall the updated CSS files.
+
+### Important Notes
+
+- Firefox generally requires a restart to apply changes to `userChrome.css` and `userContent.css`.
+- Firefox updates may change internal selectors or CSS variables, potentially requiring theme adjustments.
+- If you've modified the repository's CSS files yourself, `git pull` may report conflicts. Back up your changes before updating.
+- Existing Firefox custom stylesheets should be backed up before installation to avoid losing personal modifications.
+-
 ## Compatibility
 
 Developed and tested with:
