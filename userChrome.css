@@ -532,3 +532,8 @@ accent-color: #0061e0 !important;
     padding: 0 16px 0 !important;
 }
 
+/* Firefox back/forward swipe navigation */
+#historySwipeAnimationPreviousArrow,
+#historySwipeAnimationNextArrow {
+    --swipe-nav-icon-primary-color: #0061e0 !important;
+}
