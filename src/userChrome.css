@@ -537,3 +537,22 @@ accent-color: #0061e0 !important;
 #historySwipeAnimationNextArrow {
     --swipe-nav-icon-primary-color: #0061e0 !important;
 }
+
+/* Tab loading animation */
+
+/* Initial loading — light blue */
+.tab-throbber[busy]::before {
+    fill: #6caaff !important;
+    opacity: 0.7 !important;
+}
+
+/* Loading in progress — stronger blue */
+.tab-throbber[progress]::before {
+    fill: #0061e0 !important;
+    opacity: 1 !important;
+}
+
+/* Loading completion burst */
+:root {
+    --tab-loading-fill: #0061e0 !important;
+}
